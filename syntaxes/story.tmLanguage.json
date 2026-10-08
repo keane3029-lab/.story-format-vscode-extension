@@ -1,0 +1,107 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "STORY",
+  "scopeName": "source.story",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#day-separator" },
+    { "include": "#body" },
+    { "include": "#header" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "^\\s*#.*$",
+      "name": "comment.line.number-sign.story"
+    },
+    "day-separator": {
+      "match": "^===\\s*$",
+      "name": "meta.separator.day.story punctuation.separator.day.story"
+    },
+    "header": {
+      "patterns": [
+        {
+          "match": "^\\s*([Dd][Aa][Yy])\\s*(:)(.*)$",
+          "captures": {
+            "1": { "name": "support.type.property-name.story" },
+            "2": { "name": "punctuation.separator.key-value.story" },
+            "3": {
+              "patterns": [
+                { "match": "\\d+", "name": "constant.numeric.day.story" },
+                { "match": ".+", "name": "string.unquoted.header-value.story" }
+              ]
+            }
+          }
+        },
+        {
+          "match": "^\\s*([Tt][Ii][Tt][Ll][Ee])\\s*(:)(.*)$",
+          "captures": {
+            "1": { "name": "support.type.property-name.story" },
+            "2": { "name": "punctuation.separator.key-value.story" },
+            "3": { "name": "markup.heading.title.story" }
+          }
+        },
+        {
+          "match": "^\\s*([Ss][Cc][Ee][Nn][Ee])\\s*(:)(.*)$",
+          "captures": {
+            "1": { "name": "support.type.property-name.story" },
+            "2": { "name": "punctuation.separator.key-value.story" },
+            "3": { "name": "entity.name.type.scene.story" }
+          }
+        },
+        {
+          "match": "^\\s*([Mm][Oo][Oo][Dd])\\s*(:)(.*)$",
+          "captures": {
+            "1": { "name": "support.type.property-name.story" },
+            "2": { "name": "punctuation.separator.key-value.story" },
+            "3": { "name": "constant.language.mood.story" }
+          }
+        },
+        {
+          "match": "^\\s*([^:#\\s][^:]*)(:)(.*)$",
+          "captures": {
+            "1": { "name": "variable.other.property.extra.story" },
+            "2": { "name": "punctuation.separator.key-value.story" },
+            "3": { "name": "string.unquoted.header-value.story" }
+          }
+        },
+        {
+          "match": "^\\s*[^#\\s:][^:]*$",
+          "name": "invalid.illegal.missing-colon.story"
+        }
+      ]
+    },
+    "body": {
+      "begin": "^\\s*(---)\\s*$",
+      "beginCaptures": {
+        "1": { "name": "punctuation.separator.header-body.story" }
+      },
+      "end": "^(===)\\s*$",
+      "endCaptures": {
+        "1": { "name": "meta.separator.day.story punctuation.separator.day.story" }
+      },
+      "name": "meta.body.story",
+      "patterns": [
+        { "include": "#comment" },
+        {
+          "match": "^\\s*(\\*)(.*)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.narration.story" },
+            "2": { "name": "markup.italic.narration.story" }
+          }
+        },
+        {
+          "match": "^\\s*([^:#*\\s][^:]*)(:)(.*)$",
+          "captures": {
+            "1": { "name": "entity.name.tag.speaker.story" },
+            "2": { "name": "punctuation.separator.speaker.story" },
+            "3": { "name": "string.unquoted.dialogue.story" }
+          }
+        },
+        {
+          "match": "^\\s*[^#*\\s].*$",
+          "name": "invalid.illegal.missing-speaker-colon.story"
+        }
+      ]
+    }
+  }
+}
