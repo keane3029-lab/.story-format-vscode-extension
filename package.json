@@ -1,18 +1,23 @@
 {
   "name": "story-format-vscode-extension",
   "displayName": "STORY Format",
-  "description": "Syntax highlighting and parser support for the .STORY plain-text story format.",
-  "version": "0.0.1",
+  "description": "Syntax highlighting, diagnostics, outline and snippets for the .STORY plain-text story format.",
+  "version": "0.1.0",
   "publisher": "keane3029-lab",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/keane3029-lab/.story-format-vscode-extension"
   },
+  "homepage": "https://github.com/keane3029-lab/.story-format-vscode-extension",
+  "bugs": {
+    "url": "https://github.com/keane3029-lab/.story-format-vscode-extension/issues"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["Programming Languages"],
+  "categories": ["Programming Languages", "Snippets"],
+  "keywords": ["story", "interactive-fiction", "dialogue", "syntax", "parser"],
   "main": "./out/extension.js",
   "contributes": {
     "languages": [
@@ -29,13 +34,19 @@
         "scopeName": "source.story",
         "path": "./syntaxes/story.tmLanguage.json"
       }
+    ],
+    "snippets": [
+      {
+        "language": "story",
+        "path": "./snippets/story.code-snippets"
+      }
     ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "package": "vsce package"
+    "package": "vsce package --no-dependencies"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
