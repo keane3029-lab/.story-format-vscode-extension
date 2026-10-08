@@ -1,0 +1,46 @@
+{
+  "name": "story-format-vscode-extension",
+  "displayName": "STORY Format",
+  "description": "Syntax highlighting and parser support for the .STORY plain-text story format.",
+  "version": "0.0.1",
+  "publisher": "keane3029-lab",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keane3029-lab/.story-format-vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Programming Languages"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "story",
+        "aliases": ["STORY", "story"],
+        "extensions": [".story", ".STORY"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "story",
+        "scopeName": "source.story",
+        "path": "./syntaxes/story.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.4.0"
+  }
+}
