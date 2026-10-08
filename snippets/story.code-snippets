@@ -1,0 +1,41 @@
+{
+  "New day": {
+    "prefix": "day",
+    "description": "Day header, separator and first body lines",
+    "body": [
+      "day: ${1:1}",
+      "title: ${2:Title}",
+      "scene: ${3:Scene}",
+      "mood: ${4:Mood}",
+      "---",
+      "* ${5:narration}",
+      "${6:speaker}: ${7:line}"
+    ]
+  },
+  "Next day": {
+    "prefix": "nextday",
+    "description": "Day separator plus a new day header",
+    "body": [
+      "===",
+      "day: ${1:2}",
+      "title: ${2:Title}",
+      "---",
+      "$0"
+    ]
+  },
+  "Narration": {
+    "prefix": "nar",
+    "description": "Narration line",
+    "body": "* ${1:narration}"
+  },
+  "Dialogue": {
+    "prefix": "say",
+    "description": "Dialogue line",
+    "body": "${1:speaker}: ${2:text}"
+  },
+  "Comment": {
+    "prefix": "note",
+    "description": "Comment line",
+    "body": "# ${1:comment}"
+  }
+}
