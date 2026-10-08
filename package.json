@@ -1,13 +1,18 @@
 {
   "name": "story-format-vscode-extension",
-  "displayName": "STORY Format",
-  "description": "Syntax highlighting, diagnostics, outline and snippets for the .STORY plain-text story format.",
-  "version": "0.1.0",
+  "displayName": ".STORY Format Support",
+  "description": "Language support and syntax highlighting for .STORY files",
+  "version": "1.0.0",
   "publisher": "keane3029-lab",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/keane3029-lab/.story-format-vscode-extension"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  }
+}
+
   },
   "homepage": "https://github.com/keane3029-lab/.story-format-vscode-extension",
   "bugs": {
